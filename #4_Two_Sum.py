@@ -1,15 +1,14 @@
 def twoSum(nums, target):
-    elements = {}
-    indexes = []
+    n = {}
     for i in range(len(nums)):
-        value = target - nums[i]
-        if value in elements:
-            indexes.append(elements[value])
-            indexes.append(i)
-            break
-        elements[nums[i]] = i
-    print(f"Found indexes at : {indexes}")
-    return indexes
+        val = target - nums[i]
+        if val in n:
+            index = n[val]
+            print(f"Indexs are {index} and {i}")
+            return [index, i]
+        n[nums[i]] = i
+    print("Not found")
+    return -1
 
 nums = [1, 3, 4, 5, 7]
 target = 8
