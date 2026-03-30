@@ -1,21 +1,17 @@
 from collections import defaultdict
 
 def groupAnagrams(strs):
-    elements = defaultdict(list)
-    for i in range(len(strs)):
-        #create [0,0,0......0] for each string 
+    grp = defaultdict(list)
+    for s in strs:
         count = [0] * 26
-        for char in strs[i]:
-            #everytime a character appeared add +1,
-            count[ord(char) - ord("a")] += 1
+        for c in s:
+            index = ord(c) - ord("a")
+            count[index] += 1
+        
+        grp[tuple(count)].append(s)
+    print(grp.values())
+    return grp.values()
 
-        #grouping
-        #tuple because list cant be used as key directly
-        #instead of assigning directly which overwrites make it appended so it gets group of elements as list
-
-        elements[tuple(count)].append(strs[i])
-    print(f"{elements.values()}")
-    return elements.values()
 
 strs = ["eat","tea","tan","ate","nat","bat"]
 groupAnagrams(strs)
