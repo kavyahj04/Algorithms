@@ -1,25 +1,29 @@
+
+#Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+
 def valid_Anagram(str1, str2):
-    if(len(str1) != len(str2)):
-        return False
-    #create two hashmap
-    countStr1, countStr2 = {}, {}
+    if len(str1) != len(str2):
+        print("False")
+        return False 
+    
+    s1 = {}
+    s2 = {}
 
     for i in range(len(str1)):
-        countStr1[str1[i]] = 1 + countStr1.get(str1[i] , 0)
-        countStr2[str2[i]] = 1 + countStr2.get(str2[i], 0)
+        s1[str1[i]] = 1 + s1.get(str1[i], 0)
+        s2[str2[i]] = 1 + s2.get(str2[i], 0)
     
-    for key in countStr1:
-        if(countStr1[key] != countStr2.get(key, 0)):
+    for key in s1:
+        if s1[key] != s2[key]:
+            print("False")
             return False
     print("True")
     return True
 
-
-str1 = "ababab"
-str2 = "bababa"
-
+str1 = "anagram"
+str2 = "nagaarmkj"
 valid_Anagram(str1, str2)
-
 #TC - O(S + T)
 #SC - O(S + T)
 
