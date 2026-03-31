@@ -2,7 +2,6 @@
 # and return false if every element is distinct.
 
 # Input: nums = [1,2,3,1]
-
 # Output: true
 
 def contains_duplicate(nums):
