@@ -6,7 +6,7 @@ def longest_common_seq(nums):
     for n in nums:
         #check if this number is start of the sequence
         if (n-1) not in nums_Set:
-            length= 0
+            length = 0
             while n + length in nums_Set:
                 length += 1
             longest_sub = max(longest_sub, length)
